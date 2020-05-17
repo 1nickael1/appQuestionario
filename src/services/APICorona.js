@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: "https://covid-api-brasil.herokuapp.com",
+  baseURL: 'https://back-questionario.herokuapp.com',
 });
 
 export default api;
