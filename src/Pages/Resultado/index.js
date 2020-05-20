@@ -19,16 +19,22 @@ export default function Resultado({route, navigation}) {
   const [porcentagem, setPorcentagem] = useState(0);
   const [dadosDoEstado, setDadosDoEstado] = useState({});
   const [error, setError] = useState(false);
+  const [results, setResults] = useState('');
 
   useEffect(() => {
     setLoading(true);
     const {contagem, choice} = route.params;
     try {
       APICorona.post('/result', {
+        exam_id: '1',
         geo_lat: -5.9876,
         geo_lon: -37.9876,
         user_name: '',
         user_score: contagem,
+        user_local: `${choice}`,
+      }).then((e) => {
+        setResults(e.data.Internal_Stats.Sample),
+          console.log(e.data.Internal_Stats.Sample);
       });
       setPorcentagem((contagem / 7) * 100);
       APICorona.get(`/covid/${choice}`).then((e) => setDadosDoEstado(e.data));
@@ -60,13 +66,16 @@ export default function Resultado({route, navigation}) {
   }
   return (
     <View style={styles.container}>
-      <View>
+      <View style={{alignItems: 'center'}}>
         <Text style={styles.text}>
           Você tem {porcentagem.toFixed(2)}% de ter corona
         </Text>
         <Text style={styles.text}>Sobre o seu estado: </Text>
         <Text style={styles.text}>Casos: {dadosDoEstado.casos}</Text>
         <Text style={styles.text}>Mortes: {dadosDoEstado.mortes}</Text>
+        <Text style={styles.text}>
+          {results} pessoas já responderam o teste
+        </Text>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Home')}>
