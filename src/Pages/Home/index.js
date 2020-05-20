@@ -33,11 +33,11 @@ export default function Home({navigation}) {
             <Text style={{fontSize: wp('10%')}}>Coronavírus</Text>
           </View>
           <View>
-            <Text>Número total de casos: {casos}</Text>
-            <Text>Número total de mortes: {mortes}</Text>
+            <Text style={styles.Text}>Número total de casos: {casos}</Text>
+            <Text style={styles.Text}>Número total de mortes: {mortes}</Text>
           </View>
           <View style={styles.conteudo}>
-            <Text style={{paddingTop: hp('5%'), fontSize: wp('7%')}}>
+            <Text style={{paddingTop: hp('5%'), fontSize: wp('6%')}}>
               Contribua realizando o teste
             </Text>
             <TouchableOpacity
@@ -87,9 +87,12 @@ const styles = StyleSheet.create({
   titulo: {
     marginTop: hp('5%'),
   },
+  Text: {
+    fontSize: wp('5%'),
+  },
   button: {
     backgroundColor: '#403585',
-    width: wp('30%'),
+    width: wp('35%'),
     height: hp('5%'),
     borderRadius: wp('5%'),
     justifyContent: 'center',

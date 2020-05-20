@@ -61,10 +61,12 @@ export default function Resultado({route, navigation}) {
   return (
     <View style={styles.container}>
       <View>
-        <Text>Você tem {porcentagem.toFixed(2)}% de ter corona</Text>
-        <Text>Sobre o seu estado: </Text>
-        <Text>Casos: {dadosDoEstado.casos}</Text>
-        <Text>Mortes: {dadosDoEstado.mortes}</Text>
+        <Text style={styles.text}>
+          Você tem {porcentagem.toFixed(2)}% de ter corona
+        </Text>
+        <Text style={styles.text}>Sobre o seu estado: </Text>
+        <Text style={styles.text}>Casos: {dadosDoEstado.casos}</Text>
+        <Text style={styles.text}>Mortes: {dadosDoEstado.mortes}</Text>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Home')}>
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#403585',
-    width: wp('40%'),
+    width: wp('45%'),
     height: hp('5%'),
     borderRadius: wp('5%'),
     justifyContent: 'center',
@@ -94,5 +96,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFF',
     fontSize: wp('4%'),
+  },
+  text: {
+    fontSize: wp('5%'),
   },
 });
