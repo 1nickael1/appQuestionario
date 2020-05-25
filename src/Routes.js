@@ -15,15 +15,19 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          options={{title: 'Questionário'}}
+          options={{headerShown: false}}
           component={Home}
         />
         <Stack.Screen
           name="Questionario"
-          options={{title: 'Teste'}}
+          options={{headerShown: false}}
           component={Teste}
         />
-        <Stack.Screen name="Resultado" component={Resultado} />
+        <Stack.Screen
+          name="Resultado"
+          component={Resultado}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
